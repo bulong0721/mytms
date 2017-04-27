@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_ALLOCATION")
+@Table(name = "LOG_ALLOCATION")
 public class Allocation extends OrgAssignedEntity<Long, Allocation> {
 
     @Column(name = "MANUAL")

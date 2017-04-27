@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/7/8.
  */
 @Entity
-@Table(name = "C_BANKACCOUNT")
+@Table(name = "RES_BANKACCOUNT")
 public class BankAccount extends OrgAssignedEntity<Long, BankAccount> {
 
 }

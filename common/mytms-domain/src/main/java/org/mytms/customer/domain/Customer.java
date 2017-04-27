@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_CUSTOMER")
+@Table(name = "RES_CUSTOMER")
 public class Customer extends OrgAssignedEntity<Long, Customer> {
 
     @Column(name = "USER_NAME")
@@ -59,10 +59,6 @@ public class Customer extends OrgAssignedEntity<Long, Customer> {
     @Cascade(value = {org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @Where(clause = "archived != 'Y'")
     protected List<CustomerAddress> customerAddresses = new ArrayList<CustomerAddress>();
-
-    @OneToMany(mappedBy = "customer", targetEntity = CustomerPhone.class, cascade = {CascadeType.ALL})
-    @Cascade(value = {org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
-    protected List<CustomerPhone> customerPhones = new ArrayList<CustomerPhone>();
 
     @Column(name = "TAX_EXEMPTION_CODE")
     protected String taxExemptionCode;
@@ -141,14 +137,6 @@ public class Customer extends OrgAssignedEntity<Long, Customer> {
 
     public void setCustomerAttributes(Map<String, CustomerAttribute> customerAttributes) {
         this.customerAttributes = customerAttributes;
-    }
-
-    public List<CustomerPhone> getCustomerPhones() {
-        return customerPhones;
-    }
-
-    public void setCustomerPhones(List<CustomerPhone> customerPhones) {
-        this.customerPhones = customerPhones;
     }
 
     public boolean isDeactivated() {

@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "LOG_BPARTNER_ACCOUNT")
+@Table(name = "RES_BPARTNER_ACCOUNT")
 public class BPartnerAccount extends OrgAssignedEntity<Long, BPartnerAccount> {
 
     @OneToOne(targetEntity = Bank.class, optional = false, fetch = FetchType.LAZY)

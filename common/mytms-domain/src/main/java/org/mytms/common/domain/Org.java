@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "mytms_org")
+@Table(name = "res_org")
 public class Org extends ClientAssignedEntity<Long, Org> {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, unique = true)

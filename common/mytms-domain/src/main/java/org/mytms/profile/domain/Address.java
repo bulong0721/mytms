@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_ADDRESS")
+@Table(name = "RES_ADDRESS")
 public class Address extends GenericEntity<Long, Address> {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = GeoZone.class)
@@ -23,28 +23,44 @@ public class Address extends GenericEntity<Long, Address> {
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "COUNTY_ZONE")
     private GeoZone county;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = GeoZone.class)
-    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "CIRCLE_ZONE")
-    private GeoZone circle;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = GeoZone.class)
-    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "MALL_ZONE")
-    private GeoZone mall;
-
-    @Column(name = "ADDRESS", length = 255)
+    @Column(name = "ADDRESS", length = 60)
     private String addr;
 
-    @Column(name = "POSTAL_CODE")
-    private String postalCode;
+    @Column(name = "ZIP", length = 10)
+    private String zip;
 
-    @Column(name = "LONGITUDE")
-    private Double longitude;
+    @Column(name = "LON")
+    private Float lon;
 
-    @Column(name = "LATITUDE")
-    private Double latitude;
+    @Column(name = "LAT")
+    private Float lat;
 
     @Column(name = "TRAVEL_INFO", length = 255)
     private String travelInfo;
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public Float getLon() {
+        return lon;
+    }
+
+    public void setLon(Float lon) {
+        this.lon = lon;
+    }
+
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
 
     public String getAddr() {
         return addr;
@@ -70,38 +86,6 @@ public class Address extends GenericEntity<Long, Address> {
         this.county = county;
     }
 
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public GeoZone getMall() {
-        return mall;
-    }
-
-    public void setMall(GeoZone mall) {
-        this.mall = mall;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
     public GeoZone getProvince() {
         return province;
     }
@@ -116,13 +100,5 @@ public class Address extends GenericEntity<Long, Address> {
 
     public void setTravelInfo(String travelInfo) {
         this.travelInfo = travelInfo;
-    }
-
-    public GeoZone getCircle() {
-        return circle;
-    }
-
-    public void setCircle(GeoZone circle) {
-        this.circle = circle;
     }
 }

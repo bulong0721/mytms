@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "C_CASH_LINE")
+@Table(name = "RES_CASH_LINE")
 public class CashLine extends OrgAssignedEntity<Long, CashLine> {
 
 }

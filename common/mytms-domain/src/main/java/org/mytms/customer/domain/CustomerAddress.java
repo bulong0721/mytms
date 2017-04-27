@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_CUSTOMER_ADDRESS")
+@Table(name = "RES_CUSTOMER_ADDRESS")
 public class CustomerAddress extends GenericEntity<Long, CustomerAddress> {
 
     @Column(name = "ADDRESS_NAME")

@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_GEO_ZONE")
+@Table(name = "RES_GEO_ZONE")
 @Cacheable
 public class GeoZone extends GenericEntity<Long, GeoZone> {
 

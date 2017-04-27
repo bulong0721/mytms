@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_BANK")
+@Table(name = "RES_BANK")
 public class Bank extends GenericEntity<Long, Bank> {
 
     @Column(name = "DESCRIPTION")

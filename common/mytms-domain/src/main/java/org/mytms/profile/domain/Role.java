@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_ROLE")
+@Table(name = "RES_ROLE")
 public class Role extends GenericEntity<Long, Role> {
 
     @Column(name = "ROLE_NAME", length = 20, nullable = false)

@@ -12,7 +12,7 @@ import java.sql.Date;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "LOG_BPARTNER")
+@Table(name = "RES_BPARTNER")
 public class BPartner extends OrgAssignedEntity<Long, BPartner> {
     @Column(name = "PAY_METHOD")
     private String payMethod;

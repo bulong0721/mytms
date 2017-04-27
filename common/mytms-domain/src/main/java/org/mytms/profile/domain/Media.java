@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_MEDIA")
+@Table(name = "RES_MEDIA")
 @Cacheable
 public class Media extends GenericEntity<Long, Media> {
 

@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_PAYMENT")
+@Table(name = "LOG_PAYMENT")
 public class Payment extends OrgAssignedEntity<Long, Payment> {
 
     @ManyToOne(targetEntity = BankAccount.class, optional = false, fetch = FetchType.LAZY)

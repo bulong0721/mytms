@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_CUSTOMER_PASSWORD_TOKEN")
+@Table(name = "RES_CUSTOMER_PASSWORD_TOKEN")
 public class CustomerForgotPasswordSecurityToken extends GenericEntity<Long, CustomerForgotPasswordSecurityToken> {
 
     @Column(name = "CREATE_DATE", nullable = false)

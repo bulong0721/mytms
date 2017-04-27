@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "mytms_client")
+@Table(name = "res_client")
 public class Client extends GenericEntity<Long, Client> {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false, unique = true, length = 40)

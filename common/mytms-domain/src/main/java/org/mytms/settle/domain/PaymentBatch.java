@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_PAYMENT_BATCH")
+@Table(name = "LOG_PAYMENT_BATCH")
 public class PaymentBatch extends OrgAssignedEntity<Long, PaymentBatch> {
 
     @Column(name = "PAYMENT_PROCESSOR_ID")

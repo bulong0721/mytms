@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_CASH")
+@Table(name = "RES_CASH")
 public class Cash extends OrgAssignedEntity<Long, Cash> {
 
     @Temporal(TemporalType.TIMESTAMP)

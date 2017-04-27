@@ -13,7 +13,7 @@ import java.util.Date;
  * Created by Martin on 2016/4/11.
  */
 @Entity
-@Table(name = "C_ALLOCATION_LINE")
+@Table(name = "LOG_ALLOCATION_LINE")
 public class AllocationLine extends OrgAssignedEntity<Long, AllocationLine> {
 
     @ManyToOne(targetEntity = BPartner.class, optional = false, fetch = FetchType.LAZY)

@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by Martin on 2016/4/14.
  */
 @Entity
-@Table(name = "C_CUSTOMER_ATTRIBUTE")
+@Table(name = "RES_CUSTOMER_ATTRIBUTE")
 public class CustomerAttribute extends GenericEntity<Long, CustomerAttribute> {
 
     @Column(name = "NAME", nullable=false)
