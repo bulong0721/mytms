@@ -31,4 +31,13 @@ public class ClientController {
         return response;
     }
 
+    @ResponseBody
+    @RequestMapping("/agent/paging")
+    public AjaxPageableResponse listAgent() {
+        List<Client> all = clientService.findAll();
+        AjaxPageableResponse<Client> response = new AjaxPageableResponse<>();
+        response.setList(all);
+        return response;
+    }
+
 }
