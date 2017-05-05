@@ -1,5 +1,7 @@
 package org.mytms.common.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.GenericEntity;
 import org.hibernate.validator.constraints.Email;
 
@@ -8,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "res_client")
 public class Client extends GenericEntity<Long, Client> {
@@ -26,61 +30,9 @@ public class Client extends GenericEntity<Long, Client> {
     @Column(length = 20)
     private String fax = "";
 
-    public Client() {
-        super();
-    }
-
     public Client(long id) {
         super();
         setId(id);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getFax() {
-        return this.fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
     }
 
     @Override

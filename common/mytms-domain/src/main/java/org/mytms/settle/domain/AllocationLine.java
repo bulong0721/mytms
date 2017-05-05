@@ -1,5 +1,7 @@
 package org.mytms.settle.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.domain.OrgAssignedEntity;
 import org.mytms.partner.domain.BPartner;
 import org.mytms.pickup.domain.Invoice;
@@ -12,6 +14,8 @@ import java.util.Date;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "LOG_ALLOCATION_LINE")
 public class AllocationLine extends OrgAssignedEntity<Long, AllocationLine> {
@@ -55,92 +59,4 @@ public class AllocationLine extends OrgAssignedEntity<Long, AllocationLine> {
     @ManyToOne(targetEntity = Allocation.class, fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "ALLOCATION_ID")
     private Allocation allocation;
-
-    public Allocation getAllocation() {
-        return allocation;
-    }
-
-    public void setAllocation(Allocation allocation) {
-        this.allocation = allocation;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public BPartner getbPartner() {
-        return bPartner;
-    }
-
-    public void setbPartner(BPartner bPartner) {
-        this.bPartner = bPartner;
-    }
-
-    public CashLine getCashLine() {
-        return cashLine;
-    }
-
-    public void setCashLine(CashLine cashLine) {
-        this.cashLine = cashLine;
-    }
-
-    public BigDecimal getDiscountAmt() {
-        return discountAmt;
-    }
-
-    public void setDiscountAmt(BigDecimal discountAmt) {
-        this.discountAmt = discountAmt;
-    }
-
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public BigDecimal getOverunderAmt() {
-        return overunderAmt;
-    }
-
-    public void setOverunderAmt(BigDecimal overunderAmt) {
-        this.overunderAmt = overunderAmt;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public Date getTimeTrx() {
-        return timeTrx;
-    }
-
-    public void setTimeTrx(Date timeTrx) {
-        this.timeTrx = timeTrx;
-    }
-
-    public BigDecimal getWriteoffAmt() {
-        return writeoffAmt;
-    }
-
-    public void setWriteoffAmt(BigDecimal writeoffAmt) {
-        this.writeoffAmt = writeoffAmt;
-    }
 }

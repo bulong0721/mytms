@@ -1,5 +1,7 @@
 package org.mytms.partner.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.domain.OrgAssignedEntity;
 import org.mytms.settle.domain.Bank;
 
@@ -8,6 +10,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_BPARTNER_ACCOUNT")
 public class BPartnerAccount extends OrgAssignedEntity<Long, BPartnerAccount> {
@@ -28,44 +32,4 @@ public class BPartnerAccount extends OrgAssignedEntity<Long, BPartnerAccount> {
 
     @Column(name = "ACCOUNT_TYPE", length = 10)
     private String accountType;
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
-    }
-
-    public BPartner getBPartner() {
-        return bPartner;
-    }
-
-    public void setBPartner(BPartner bPartner) {
-        this.bPartner = bPartner;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
 }

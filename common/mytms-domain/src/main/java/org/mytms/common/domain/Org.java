@@ -1,5 +1,7 @@
 package org.mytms.common.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.Column;
@@ -7,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "res_org")
 public class Org extends ClientAssignedEntity<Long, Org> {
@@ -25,61 +29,9 @@ public class Org extends ClientAssignedEntity<Long, Org> {
     @Column(length = 20)
     private String fax = "";
 
-    public Org() {
-        super();
-    }
-
     public Org(long id) {
         super();
         setId(id);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getFax() {
-        return this.fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
     }
 
     @Override

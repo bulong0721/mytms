@@ -1,5 +1,7 @@
 package org.mytms.transfer.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.domain.OrgAssignedEntity;
 import org.mytms.customer.domain.Customer;
 import org.mytms.partner.domain.BPartner;
@@ -13,6 +15,8 @@ import java.util.List;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "LOG_INOUT")
 public class Inout extends OrgAssignedEntity<Long, Inout> {
@@ -64,115 +68,4 @@ public class Inout extends OrgAssignedEntity<Long, Inout> {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "inout")
     private List<InoutLine> lines;
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public String getHandleMethod() {
-        return handleMethod;
-    }
-
-    public void setHandleMethod(String handleMethod) {
-        this.handleMethod = handleMethod;
-    }
-
-    public String getInoutType() {
-        return inoutType;
-    }
-
-    public void setInoutType(String inoutType) {
-        this.inoutType = inoutType;
-    }
-
-    public List<InoutLine> getLines() {
-        return lines;
-    }
-
-    public void setLines(List<InoutLine> lines) {
-        this.lines = lines;
-    }
-
-    public Movement getMovement() {
-        return movement;
-    }
-
-    public void setMovement(Movement movement) {
-        this.movement = movement;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public BPartner getSignedBPartner() {
-        return signedBPartner;
-    }
-
-    public void setSignedBPartner(BPartner signedBPartner) {
-        this.signedBPartner = signedBPartner;
-    }
-
-    public String getSignedType() {
-        return signedType;
-    }
-
-    public void setSignedType(String signedType) {
-        this.signedType = signedType;
-    }
-
-    public Customer getSignedUser() {
-        return signedUser;
-    }
-
-    public void setSignedUser(Customer signedUser) {
-        this.signedUser = signedUser;
-    }
-
-    public Date getTimeInouted() {
-        return timeInouted;
-    }
-
-    public void setTimeInouted(Date timeInouted) {
-        this.timeInouted = timeInouted;
-    }
-
-    public Integer getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(Integer totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public BigDecimal getTotalVolume() {
-        return totalVolume;
-    }
-
-    public void setTotalVolume(BigDecimal totalVolume) {
-        this.totalVolume = totalVolume;
-    }
-
-    public BigDecimal getTotalWeight() {
-        return totalWeight;
-    }
-
-    public void setTotalWeight(BigDecimal totalWeight) {
-        this.totalWeight = totalWeight;
-    }
-
-    public Long getWarehouse() {
-        return warehouse;
-    }
-
-    public void setWarehouse(Long warehouse) {
-        this.warehouse = warehouse;
-    }
 }

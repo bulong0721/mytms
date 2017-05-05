@@ -1,5 +1,7 @@
 package org.mytms.customer.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.GenericEntity;
 
 import javax.persistence.*;
@@ -8,6 +10,8 @@ import java.util.Date;
 /**
  * Created by Martin on 2016/4/14.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_CUSTOMER_PASSWORD_TOKEN")
 public class CustomerForgotPasswordSecurityToken extends GenericEntity<Long, CustomerForgotPasswordSecurityToken> {
@@ -25,55 +29,4 @@ public class CustomerForgotPasswordSecurityToken extends GenericEntity<Long, Cus
 
     @Column(name = "TOKEN_USED_FLAG", nullable = false)
     protected boolean tokenUsedFlag;
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Date getTokenUsedDate() {
-        return tokenUsedDate;
-    }
-
-    public void setTokenUsedDate(Date tokenUsedDate) {
-        this.tokenUsedDate = tokenUsedDate;
-    }
-
-    public boolean isTokenUsedFlag() {
-        return tokenUsedFlag;
-    }
-
-    public void setTokenUsedFlag(boolean tokenUsedFlag) {
-        this.tokenUsedFlag = tokenUsedFlag;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        CustomerForgotPasswordSecurityToken that = (CustomerForgotPasswordSecurityToken) o;
-
-        return !(id != null ? !id.equals(that.id) : that.id != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (id != null ? id.hashCode() : 0);
-        return result;
-    }
 }

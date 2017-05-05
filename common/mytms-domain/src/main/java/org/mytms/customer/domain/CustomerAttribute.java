@@ -1,5 +1,7 @@
 package org.mytms.customer.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.GenericEntity;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/14.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_CUSTOMER_ATTRIBUTE")
 public class CustomerAttribute extends GenericEntity<Long, CustomerAttribute> {
@@ -22,28 +26,4 @@ public class CustomerAttribute extends GenericEntity<Long, CustomerAttribute> {
     @ManyToOne(targetEntity = Customer.class, optional=false)
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "CUSTOMER_ID")
     protected Customer customer;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

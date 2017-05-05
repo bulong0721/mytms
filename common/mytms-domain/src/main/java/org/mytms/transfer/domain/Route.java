@@ -1,5 +1,7 @@
 package org.mytms.transfer.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.domain.Org;
 import org.mytms.common.domain.OrgAssignedEntity;
 
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "LOG_ROUTE")
 public class Route extends OrgAssignedEntity<Long, Route> {
@@ -34,11 +38,4 @@ public class Route extends OrgAssignedEntity<Long, Route> {
     @Column(name = "TOTAL_MILEAGE")
     private int totalMileage;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

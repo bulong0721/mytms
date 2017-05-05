@@ -1,5 +1,7 @@
 package org.mytms.profile.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mytms.common.GenericEntity;
 
@@ -8,6 +10,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/14.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_GEO_ZONE")
 @Cacheable
@@ -26,28 +30,4 @@ public class GeoZone extends GenericEntity<Long, GeoZone> {
 
     @Column(name = "ZONE_LEVEL")
     private int level;//区域级别0国家，1省/直辖市，2市，3区县
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
 }

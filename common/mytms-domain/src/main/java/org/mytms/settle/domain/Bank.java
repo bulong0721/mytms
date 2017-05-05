@@ -1,5 +1,7 @@
 package org.mytms.settle.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.GenericEntity;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_BANK")
 public class Bank extends GenericEntity<Long, Bank> {
@@ -19,39 +23,4 @@ public class Bank extends GenericEntity<Long, Bank> {
 
     @Column(name = "SWIFT_CODE", length = 60)
     private String swiftCode;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSwiftCode() {
-        return swiftCode;
-    }
-
-    public void setSwiftCode(String swiftCode) {
-        this.swiftCode = swiftCode;
-    }
 }

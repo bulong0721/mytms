@@ -1,5 +1,7 @@
 package org.mytms.transfer.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.domain.OrgAssignedEntity;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/11.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "LOG_WAREHOUSE")
 public class Warehouse extends OrgAssignedEntity<Long, Warehouse> {
@@ -25,44 +29,4 @@ public class Warehouse extends OrgAssignedEntity<Long, Warehouse> {
 
     @Column(name = "TERMINAL")
     private boolean terminal = true;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getOwnerOrg() {
-        return ownerOrg;
-    }
-
-    public void setOwnerOrg(Long ownerOrg) {
-        this.ownerOrg = ownerOrg;
-    }
-
-    public boolean isStart() {
-        return start;
-    }
-
-    public void setStart(boolean start) {
-        this.start = start;
-    }
-
-    public boolean isTerminal() {
-        return terminal;
-    }
-
-    public void setTerminal(boolean terminal) {
-        this.terminal = terminal;
-    }
 }

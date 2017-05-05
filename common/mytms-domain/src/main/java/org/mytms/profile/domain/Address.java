@@ -1,5 +1,7 @@
 package org.mytms.profile.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mytms.common.GenericEntity;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 /**
  * Created by Martin on 2016/4/14.
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "RES_ADDRESS")
 public class Address extends GenericEntity<Long, Address> {
@@ -37,68 +41,4 @@ public class Address extends GenericEntity<Long, Address> {
 
     @Column(name = "TRAVEL_INFO", length = 255)
     private String travelInfo;
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
-    public Float getLon() {
-        return lon;
-    }
-
-    public void setLon(Float lon) {
-        this.lon = lon;
-    }
-
-    public Float getLat() {
-        return lat;
-    }
-
-    public void setLat(Float lat) {
-        this.lat = lat;
-    }
-
-    public String getAddr() {
-        return addr;
-    }
-
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
-    public GeoZone getCity() {
-        return city;
-    }
-
-    public void setCity(GeoZone city) {
-        this.city = city;
-    }
-
-    public GeoZone getCounty() {
-        return county;
-    }
-
-    public void setCounty(GeoZone county) {
-        this.county = county;
-    }
-
-    public GeoZone getProvince() {
-        return province;
-    }
-
-    public void setProvince(GeoZone province) {
-        this.province = province;
-    }
-
-    public String getTravelInfo() {
-        return travelInfo;
-    }
-
-    public void setTravelInfo(String travelInfo) {
-        this.travelInfo = travelInfo;
-    }
 }
