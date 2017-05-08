@@ -62,7 +62,7 @@ public class ClientController {
     }
 
     @ResponseBody
-    @RequestMapping("/site/paging")
+    @RequestMapping("/website/paging")
     public AjaxPageableResponse listSite() {
         List<Site> all = Lists.newArrayList();
         Site site = new Site(1, "web01", "192.168.0.1", "网易", "www.163.com", 200);
