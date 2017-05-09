@@ -1,5 +1,7 @@
 package org.mytms.common;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -9,52 +11,19 @@ import java.util.Date;
 /**
  * Created by Martin on 2016/4/8.
  */
+@Getter
+@Setter
 @MappedSuperclass
 public abstract class GenericEntity<K extends Serializable & Comparable<K>, E extends GenericEntity<K, ?>>
         implements Serializable, Comparable<E> {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected K id;
-    @Version
-    protected int version;
     @Column(updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     protected Date created = new Date();
     @Temporal(TemporalType.TIMESTAMP)
     protected Date modified = new Date();
-
-    public K getId() {
-        return id;
-    }
-
-    public void setId(K id) {
-        this.id = id;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getModified() {
-        return modified;
-    }
-
-    public void setModified(Date modified) {
-        this.modified = modified;
-    }
 
     @Transient
     public boolean isNew() {

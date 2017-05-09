@@ -51,7 +51,7 @@ public class ToolController {
     public AjaxResponse saveTable(@RequestBody DbTable table) {
         AjaxResponse<Client> response = new AjaxResponse<>();
         try {
-            tableService.save(table);
+            tableService.update(table);
         } catch (ServiceException e) {
             e.printStackTrace();
         }
