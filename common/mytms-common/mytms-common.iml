@@ -7,13 +7,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/apt" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/querydsl" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.14" level="project" />
     <orderEntry type="library" name="Maven: org.redisson:redisson:3.3.2" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.8.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.8.Final" level="project" />

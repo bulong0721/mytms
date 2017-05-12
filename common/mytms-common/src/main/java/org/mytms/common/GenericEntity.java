@@ -19,12 +19,14 @@ public abstract class GenericEntity<K extends Serializable & Comparable<K>, E ex
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected K id;
+
+    @Transient
     @Column(updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     protected Date created = new Date();
+    @Transient
     @Temporal(TemporalType.TIMESTAMP)
     protected Date modified = new Date();
-
     @Transient
     public boolean isNew() {
         return getId() == null;

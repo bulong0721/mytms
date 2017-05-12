@@ -9,7 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.14" level="project" />
     <orderEntry type="module" module-name="mytms-common" />
     <orderEntry type="library" name="Maven: org.redisson:redisson:3.3.2" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.8.Final" level="project" />
@@ -65,7 +64,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.14" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.31" level="project" />
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-apt:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-codegen:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: com.mysema.codegen:codegen:0.6.8" level="project" />
@@ -102,5 +100,8 @@
     <orderEntry type="library" name="Maven: javax.jdo:jdo2-api:2.3-eb" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.31" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.openjpa:openjpa-all:2.4.2" level="project" />
   </component>
 </module>
