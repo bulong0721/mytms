@@ -12,8 +12,8 @@ public class CodeGen {
             String path = "d:/mytms_home/entity";
             String jpaArg = "-no false -fkn false -cc org.mytms.adempiere.MyTmsCustomizer -pkj false -d "
                             + path
-                            + " -is PK -ann true -md none -inn false -ir false -access field";
-//             jpaArg += " -s " + "ad_ref_list_v1";
+                            + " -is PK -ann true -md none -inn false -ir false -access field ";
+//             jpaArg += " -s " + "ad_field";
             String[] jpaArgs = jpaArg.split(" ");
             ReverseMappingTool.main(jpaArgs);
         } catch (Exception e) {

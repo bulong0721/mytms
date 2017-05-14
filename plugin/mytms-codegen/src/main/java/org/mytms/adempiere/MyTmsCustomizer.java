@@ -15,6 +15,7 @@ import org.apache.openjpa.lib.util.CodeFormat;
 import org.mytms.adempiere.domain.ADComponent;
 import org.mytms.adempiere.domain.ADForm;
 import org.mytms.adempiere.domain.AntDUtils;
+import org.mytms.adempiere.domain.ComponentCodec;
 
 import java.io.FileWriter;
 import java.io.IOException;
