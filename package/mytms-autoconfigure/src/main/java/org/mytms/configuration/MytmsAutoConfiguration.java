@@ -1,5 +1,7 @@
 package org.mytms.configuration;
 
+import org.mytms.adempiere.dto.UsingCodec;
+import org.mytms.adempiere.dto.UsingDto;
 import org.mytms.common.support.FastJsonHttpMessageConverter;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
@@ -31,7 +33,9 @@ public class MytmsAutoConfiguration {
 
     @Bean
     public HttpMessageConverter fastJsonConverter() {
-        return new FastJsonHttpMessageConverter();
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        converter.getSerializeConfig().put(UsingDto.class, new UsingCodec());
+        return converter;
     }
 
     @Bean

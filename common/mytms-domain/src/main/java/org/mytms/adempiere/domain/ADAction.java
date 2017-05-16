@@ -44,6 +44,6 @@ public class ADAction extends GenericEntity<Long, ADAction> {
     @Column(name = "popup_editor")
     private Boolean popupEditor;
 
-    private Using using;
+    private Using component;
 
 }

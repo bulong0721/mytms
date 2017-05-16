@@ -40,9 +40,6 @@ public class ADTab extends GenericEntity<Long, ADTab> {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tab", targetEntity = ADField.class)
     private List<ADField> fields;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tab", targetEntity = ADFieldGroup.class)
-    private List<ADFieldGroup> fieldGroups;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tab", targetEntity = ADNested.class)
     private List<ADNested> nesteds;
 }

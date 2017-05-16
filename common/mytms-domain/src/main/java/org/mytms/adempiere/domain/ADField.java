@@ -53,6 +53,10 @@ public class ADField extends GenericEntity<Long, ADField> {
     private Boolean notAsFilter;
 
     @Basic
+    @Column(name = "grp_title", length = 20)
+    private String grpTitle;
+
+    @Basic
     @Column(length = 20)
     private String placeholder;
 }

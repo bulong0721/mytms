@@ -1,6 +1,7 @@
 package org.mytms.common.support;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
@@ -15,11 +16,13 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
-    private static final Charset             DEFAULT_CHARSET   = Charset.forName("UTF-8");
-    private              SerializerFeature[] serializerFeature = {SerializerFeature.DisableCircularReferenceDetect};
+    private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+    private SerializerFeature[] serializerFeature = {SerializerFeature.DisableCircularReferenceDetect};
+    private SerializeConfig serializeConfig = new SerializeConfig();
 
     public FastJsonHttpMessageConverter() {
     }
+
 
     public SerializerFeature[] getSerializerFeature() {
         return serializerFeature;
@@ -27,6 +30,10 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
 
     public void setSerializerFeature(SerializerFeature[] serializerFeature) {
         this.serializerFeature = serializerFeature;
+    }
+
+    public SerializeConfig getSerializeConfig() {
+        return serializeConfig;
     }
 
     @Override
@@ -64,7 +71,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
 
     @Override
     protected void writeInternal(Object t, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
-        String jsonString = JSON.toJSONString(t, serializerFeature);
+        String jsonString = JSON.toJSONString(t, serializeConfig, serializerFeature);
         StreamUtils.copy(jsonString, DEFAULT_CHARSET, outputMessage.getBody());
     }
 
