@@ -3,8 +3,6 @@ package org.mytms.adempiere.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.mytms.adempiere.domain.ADAction;
-import org.mytms.adempiere.domain.ADTable;
 
 import java.util.List;
 
@@ -14,11 +12,22 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class TabDto extends ADTable {
+public class TabDto {
+    private String key;
 
-    private List<ADAction> actions;
+    private String title;
+
+    private int editorSpan = 12;
+
+    private int filterSpan = 6;
+
+    private boolean nested = false;
+
+    private List<ActionDto> actions;
+
+    private List<FieldDto> fields;
 
     private Integer nestedIndex;
 
-    private List<ADTable> nestedTables;
+    private List<NestedDto> nestedTables;
 }

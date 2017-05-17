@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * Created by Martin.Xu on 2017/5/16.
  */
@@ -18,7 +20,7 @@ public class FieldDto {
 
     private String title;
 
-    private String grpTitle;
+    private String group;
 
     private Integer size;
 
@@ -33,4 +35,6 @@ public class FieldDto {
     private Boolean notAsColumn = true;
 
     private Boolean notAsEditor = true;
+
+    private List<FieldDto> child;
 }

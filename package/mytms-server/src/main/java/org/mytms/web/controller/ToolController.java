@@ -1,6 +1,8 @@
 package org.mytms.web.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.mytms.adempiere.dto.FieldDto;
+import org.mytms.adempiere.dto.TabDto;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
 import org.mytms.mysql.service.MetaService;
@@ -26,10 +28,27 @@ public class ToolController {
 
     @ResponseBody
     @RequestMapping("/tab/listFieldsByTable")
-    public AjaxResponse listFields() {
+    public AjaxResponse listFields(@RequestBody JSONObject parameter) {
         AjaxPageableResponse<FieldDto> response = new AjaxPageableResponse<>();
-        List<FieldDto> all = metaService.listFieldsByTable("crm_vehicle");
+        String tableName = parameter.getString("tableName");
+        List<FieldDto> all = metaService.listFieldsByTable(tableName);
         response.setList(all);
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping("/tab/listTabs")
+    public AjaxResponse listTabs(@RequestBody JSONObject parameter) {
+        AjaxPageableResponse<TabDto> response = new AjaxPageableResponse<>();
+
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping("/tab/saveSchema")
+    public AjaxResponse saveSchema(@RequestBody TabDto tabDto) {
+        AjaxResponse<TabDto> response = new AjaxResponse<>();
+        LOG.info("schema", tabDto);
         return response;
     }
 }

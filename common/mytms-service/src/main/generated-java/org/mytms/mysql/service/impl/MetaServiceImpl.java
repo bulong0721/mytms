@@ -1,8 +1,8 @@
 package org.mytms.mysql.service.impl;
 
 import com.google.common.collect.Lists;
-import org.mytms.adempiere.domain.ShowType;
 import org.mytms.adempiere.dto.FieldDto;
+import org.mytms.adempiere.dto.ShowType;
 import org.mytms.adempiere.dto.UsingDto;
 import org.mytms.mysql.domain.Column;
 import org.mytms.mysql.domain.Table;

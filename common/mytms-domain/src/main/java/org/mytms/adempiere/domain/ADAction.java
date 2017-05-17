@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="ad_action")
+@Table(name = "ad_action")
 public class ADAction extends GenericEntity<Long, ADAction> {
 
     @Basic
@@ -44,6 +44,6 @@ public class ADAction extends GenericEntity<Long, ADAction> {
     @Column(name = "popup_editor")
     private Boolean popupEditor;
 
-    private Using component;
+    private String component;
 
 }
