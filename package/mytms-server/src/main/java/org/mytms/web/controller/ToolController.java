@@ -1,8 +1,10 @@
 package org.mytms.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.mytms.adempiere.domain.ADTab;
 import org.mytms.adempiere.dto.FieldDto;
 import org.mytms.adempiere.dto.TabDto;
+import org.mytms.adempiere.service.ADTabService;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
 import org.mytms.mysql.service.MetaService;
@@ -25,10 +27,12 @@ public class ToolController {
 
     @Autowired
     MetaService metaService;
+    @Autowired
+    ADTabService tabService;
 
     @ResponseBody
     @RequestMapping("/tab/listFieldsByTable")
-    public AjaxResponse listFields(@RequestBody JSONObject parameter) {
+    public AjaxPageableResponse listFields(@RequestBody JSONObject parameter) {
         AjaxPageableResponse<FieldDto> response = new AjaxPageableResponse<>();
         String tableName = parameter.getString("tableName");
         List<FieldDto> all = metaService.listFieldsByTable(tableName);
@@ -38,7 +42,7 @@ public class ToolController {
 
     @ResponseBody
     @RequestMapping("/tab/listTabs")
-    public AjaxResponse listTabs(@RequestBody JSONObject parameter) {
+    public AjaxPageableResponse listTabs(@RequestBody JSONObject parameter) {
         AjaxPageableResponse<TabDto> response = new AjaxPageableResponse<>();
 
         return response;
@@ -50,5 +54,10 @@ public class ToolController {
         AjaxResponse<TabDto> response = new AjaxResponse<>();
         LOG.info("schema", tabDto);
         return response;
+    }
+
+    ADTab toEntity(TabDto tabDto) {
+        ADTab entity = new ADTab();
+        return entity;
     }
 }
