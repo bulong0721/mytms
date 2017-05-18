@@ -1,13 +1,15 @@
 package org.mytms.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
+import org.modelmapper.ModelMapper;
 import org.mytms.adempiere.domain.ADTab;
 import org.mytms.adempiere.dto.FieldDto;
 import org.mytms.adempiere.dto.TabDto;
 import org.mytms.adempiere.service.ADTabService;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
-import org.mytms.mysql.service.MetaService;
+import org.mytms.adempiere.service.MetaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +46,9 @@ public class ToolController {
     @RequestMapping("/tab/listTabs")
     public AjaxPageableResponse listTabs(@RequestBody JSONObject parameter) {
         AjaxPageableResponse<TabDto> response = new AjaxPageableResponse<>();
-
+        ModelMapper mapper = new ModelMapper();
+        List<TabDto> dtoList = Lists.transform(tabService.findAll(), entity -> mapper.map(entity, TabDto.class));
+        response.setList(dtoList);
         return response;
     }
 
@@ -52,12 +56,14 @@ public class ToolController {
     @RequestMapping("/tab/saveSchema")
     public AjaxResponse saveSchema(@RequestBody TabDto tabDto) {
         AjaxResponse<TabDto> response = new AjaxResponse<>();
-        LOG.info("schema", tabDto);
+        TabDto savedDto = tabService.updateCascade(tabDto);
+        response.setData(savedDto);
         return response;
     }
 
-    ADTab toEntity(TabDto tabDto) {
-        ADTab entity = new ADTab();
+    ADTab toEntity(TabDto dto) {
+        ModelMapper mapper = new ModelMapper();
+        ADTab entity = mapper.map(dto, ADTab.class);
         return entity;
     }
 }

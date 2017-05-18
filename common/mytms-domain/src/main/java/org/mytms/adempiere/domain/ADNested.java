@@ -22,11 +22,11 @@ public class ADNested extends GenericEntity<Long, ADNested> {
     private ADTab tab;
 
     @Basic
-    @Column(name = "data_index", length = 20)
+    @Column(name = "data_index", length = 40)
     private String key;
 
     @Basic
-    @Column(length = 20, nullable = false)
+    @Column(length = 40, nullable = false)
     private String title;
 
     @ManyToOne(targetEntity = ADTab.class, fetch = FetchType.LAZY)

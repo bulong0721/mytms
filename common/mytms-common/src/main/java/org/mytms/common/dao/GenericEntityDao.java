@@ -1,11 +1,11 @@
 package org.mytms.common.dao;
 
+import com.querydsl.core.types.OrderSpecifier;
+import com.querydsl.core.types.Predicate;
 import org.mytms.common.GenericEntity;
 import org.mytms.common.data.Page;
 import org.mytms.common.data.Pageable;
 import org.mytms.common.data.Sort;
-import com.querydsl.core.types.OrderSpecifier;
-import com.querydsl.core.types.Predicate;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
@@ -39,13 +39,17 @@ public interface GenericEntityDao<K extends Serializable & Comparable<K>, E exte
 
     boolean exists(Predicate predicate);
 
-    <T> void update(T entity);
+    <S extends E> S save(S entity);
 
-    <T> void save(T entity);
+    <S extends E> List<S> save(Iterable<S> entities);
 
-    <T> void delete(T entity);
+    <S extends E> S saveAndFlush(S entity);
 
-    <T> T refresh(T entity);
+    void delete(E entity);
+
+    void delete(Iterable<? extends E> entities);
+
+    E refresh(E entity);
 
     E getEntity(Class<? extends E> clazz, K id);
 

@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ActionDto {
+    private Long id;
     private String icon;
     private String type;
     private String action;

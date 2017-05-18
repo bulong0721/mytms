@@ -1,5 +1,7 @@
 package org.mytms.common.service;
 
+import com.querydsl.core.types.OrderSpecifier;
+import com.querydsl.core.types.Predicate;
 import org.mytms.common.GenericEntity;
 import org.mytms.common.dao.GenericEntityDao;
 import org.mytms.common.data.Page;
@@ -7,8 +9,6 @@ import org.mytms.common.data.Pageable;
 import org.mytms.common.data.Sort;
 import org.mytms.common.exception.ServiceException;
 import org.mytms.common.util.GenericEntityUtil;
-import com.querydsl.core.types.OrderSpecifier;
-import com.querydsl.core.types.Predicate;
 
 import java.io.Serializable;
 import java.util.List;
@@ -38,28 +38,37 @@ public abstract class GenericEntityServiceImpl<K extends Serializable & Comparab
         return genericDao.getById(id);
     }
 
-    public void save(E entity) throws ServiceException {
-        genericDao.save(entity);
-    }
-
     public void create(E entity) throws ServiceException {
         createEntity(entity);
     }
 
     protected void createEntity(E entity) throws ServiceException {
-        save(entity);
+        update(entity);
     }
 
-    public void update(E entity) throws ServiceException {
-        updateEntity(entity);
+    @Override
+    public <S extends E> S update(S entity) throws ServiceException {
+        return genericDao.save(entity);
     }
 
-    protected void updateEntity(E entity) throws ServiceException {
-        genericDao.update(entity);
+    @Override
+    public <S extends E> List<S> update(Iterable<S> entities) throws ServiceException {
+        return genericDao.save(entities);
     }
 
-    public void delete(E entity) throws ServiceException {
+    @Override
+    public <S extends E> S updateAndFlush(S entity) throws ServiceException {
+        return genericDao.saveAndFlush(entity);
+    }
+
+    @Override
+    public void remove(E entity) throws ServiceException {
         genericDao.delete(entity);
+    }
+
+    @Override
+    public void remove(Iterable<? extends E> entities) throws ServiceException {
+        genericDao.delete(entities);
     }
 
     public void flush() {

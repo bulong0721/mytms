@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.mytms.common.GenericEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by admin on 2017/5/12.
@@ -20,12 +17,16 @@ import javax.persistence.Table;
 @Table(name = "ad_action")
 public class ADAction extends GenericEntity<Long, ADAction> {
 
+    @ManyToOne(targetEntity = ADTab.class, fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "tab_id")
+    private ADTab tab;
+
     @Basic
-    @Column(name = "data_index", length = 20)
+    @Column(name = "data_index", length = 40)
     private String key;
 
     @Basic
-    @Column(length = 20)
+    @Column(length = 40)
     private String title;
 
     @Basic
@@ -37,7 +38,7 @@ public class ADAction extends GenericEntity<Long, ADAction> {
     private String type;
 
     @Basic
-    @Column(length = 20)
+    @Column(length = 40)
     private String action;
 
     @Basic

@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class FieldDto {
+    private Long id;
 
     private String key;
 

@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class TabDto {
+    private Long id;
+
     private String key;
 
     private String title;

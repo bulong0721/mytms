@@ -9,10 +9,10 @@ public class CodeGen {
     public static void main(String[] args) throws IOException {
         try {
             //-pkg org.mytms.youtu.domain
-            String path = "d:/mytms_home/mysql";
+            String path = "d:/mytms_home/entity";
             String jpaArg = "-no false -fkn false -cc org.mytms.adempiere.MyTmsCustomizer -pkj false -d "
                             + path
-                            + " -is PK -ann true -md none -inn false -ir false -access field ";
+                            + " -is PK -pkg org.mytms.customer.domain -ann true -md none -inn false -ir false -access field ";
 //             jpaArg += " -s " + "ad_field";
             String[] jpaArgs = jpaArg.split(" ");
             ReverseMappingTool.main(jpaArgs);

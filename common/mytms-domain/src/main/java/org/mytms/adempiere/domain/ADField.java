@@ -22,7 +22,7 @@ public class ADField extends GenericEntity<Long, ADField> {
     private ADTab tab;
 
     @Basic
-    @Column(name = "data_index", length = 20)
+    @Column(name = "data_index", length = 40)
     private String key;
 
     @Basic
@@ -30,7 +30,7 @@ public class ADField extends GenericEntity<Long, ADField> {
     private String showType;
 
     @Basic
-    @Column(length = 20)
+    @Column(length = 40)
     private String title;
 
     @Basic
@@ -53,8 +53,8 @@ public class ADField extends GenericEntity<Long, ADField> {
     private Boolean notAsFilter;
 
     @Basic
-    @Column(name = "grp_title", length = 20)
-    private String grpTitle;
+    @Column(name = "group_name", length = 20)
+    private String group;
 
     @Basic
     @Column(length = 20)
