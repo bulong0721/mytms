@@ -25,7 +25,7 @@ public class FieldDto {
 
     private Integer size;
 
-    private UsingDto options;
+    private List<OptionDto> options;
 
     private UsingDto render;
 

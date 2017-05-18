@@ -9,7 +9,7 @@ import org.mytms.adempiere.dto.TabDto;
 import org.mytms.adempiere.service.ADTabService;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
-import org.mytms.adempiere.service.MetaService;
+import org.mytms.adempiere.service.ADMetaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class ToolController {
     private static final Logger LOG = LoggerFactory.getLogger(ToolController.class);
 
     @Autowired
-    MetaService metaService;
+    ADMetaService metaService;
     @Autowired
     ADTabService tabService;
 

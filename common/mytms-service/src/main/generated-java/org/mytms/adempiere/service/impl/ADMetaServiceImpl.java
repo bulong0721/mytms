@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import org.mytms.adempiere.dto.FieldDto;
 import org.mytms.adempiere.dto.ShowType;
 import org.mytms.adempiere.dto.ColumnDto;
-import org.mytms.adempiere.service.MetaService;
+import org.mytms.adempiere.service.ADMetaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Martin.Xu on 2017/5/15.
  */
 @Service
-public class MetaServiceImpl implements MetaService {
+public class ADMetaServiceImpl implements ADMetaService {
 
     @Autowired
     DataSource dataSource;
@@ -77,9 +77,11 @@ public class MetaServiceImpl implements MetaService {
             case Types.BIGINT:
             case Types.DOUBLE:
             case Types.FLOAT:
+            case Types.REAL:
             case Types.DECIMAL:
             case Types.SMALLINT:
             case Types.TINYINT:
+            case Types.NUMERIC:
                 showType = ShowType.Number;
                 break;
             case Types.BIT:
@@ -94,9 +96,14 @@ public class MetaServiceImpl implements MetaService {
             case Types.TIMESTAMP_WITH_TIMEZONE:
                 showType = ShowType.Datetime;
                 break;
+            default:
+                break;
         }
-        if (col.getName().endsWith("Type")) {
+        if (camelStyle.equalsIgnoreCase("id")) {
+            showType = ShowType.ID;
+        } else if (camelStyle.endsWith("Type")) {
             showType = ShowType.Select;
+            field.setOptions(Lists.newArrayList());
         }
         field.setShowType(showType.getValue());
         field.setTitle(title);
