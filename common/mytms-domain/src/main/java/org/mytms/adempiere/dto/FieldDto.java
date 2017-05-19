@@ -31,11 +31,13 @@ public class FieldDto {
 
     private Boolean disabled;
 
-    private Boolean notAsFilter = true;
+    private Boolean notAsFilter;
 
-    private Boolean notAsColumn = true;
+    private Boolean notAsColumn;
 
-    private Boolean notAsEditor = true;
+    private Boolean notAsEditor;
 
     private List<FieldDto> child;
+
+    private LayoutDto layout;
 }

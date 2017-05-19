@@ -7,5 +7,7 @@ import org.mytms.common.service.GenericEntityService;
 public interface ADTabService extends GenericEntityService<Long, ADTab> {
 
     TabDto updateCascade(TabDto dto);
+
+    TabDto convertToDto(ADTab entity, boolean skipField, boolean skipAction, boolean skipNested);
 }
 

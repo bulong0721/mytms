@@ -14,6 +14,8 @@ public enum ShowType {
     Placeholder("placeholder"),
     Actions("actions"),
     Collapse("collapse"),
+    AutoComplete("autoComplete"),
+    Image("image"),
     Input("input");
     private String type;
 

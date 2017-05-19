@@ -6,10 +6,10 @@ import org.modelmapper.ModelMapper;
 import org.mytms.adempiere.domain.ADTab;
 import org.mytms.adempiere.dto.FieldDto;
 import org.mytms.adempiere.dto.TabDto;
+import org.mytms.adempiere.service.ADMetaService;
 import org.mytms.adempiere.service.ADTabService;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
-import org.mytms.adempiere.service.ADMetaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class ToolController {
     }
 
     @ResponseBody
-    @RequestMapping("/tab/listTabs")
+    @RequestMapping({"/tab/listTabs", "/tab/paging"})
     public AjaxPageableResponse listTabs(@RequestBody JSONObject parameter) {
         AjaxPageableResponse<TabDto> response = new AjaxPageableResponse<>();
         ModelMapper mapper = new ModelMapper();

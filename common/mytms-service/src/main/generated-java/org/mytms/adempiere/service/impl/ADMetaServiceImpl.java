@@ -1,9 +1,10 @@
 package org.mytms.adempiere.service.impl;
 
 import com.google.common.collect.Lists;
-import org.mytms.adempiere.dto.FieldDto;
-import org.mytms.adempiere.dto.ShowType;
 import org.mytms.adempiere.dto.ColumnDto;
+import org.mytms.adempiere.dto.FieldDto;
+import org.mytms.adempiere.dto.LayoutDto;
+import org.mytms.adempiere.dto.ShowType;
 import org.mytms.adempiere.service.ADMetaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,9 +102,14 @@ public class ADMetaServiceImpl implements ADMetaService {
         }
         if (camelStyle.equalsIgnoreCase("id")) {
             showType = ShowType.ID;
-        } else if (camelStyle.endsWith("Type")) {
+        } else if (camelStyle.endsWith("Type") || camelStyle.endsWith("Status") || camelStyle.endsWith("Level")) {
             showType = ShowType.Select;
             field.setOptions(Lists.newArrayList());
+        } else if (camelStyle.endsWith("Id")) {
+            showType = ShowType.AutoComplete;
+        } else if (camelStyle.startsWith("img")) {
+            showType = ShowType.Image;
+            field.setLayout(LayoutDto.L_24_8);
         }
         field.setShowType(showType.getValue());
         field.setTitle(title);

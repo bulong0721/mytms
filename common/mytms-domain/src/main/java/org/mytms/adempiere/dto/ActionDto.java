@@ -16,7 +16,7 @@ public class ActionDto {
     private String type;
     private String action;
     private Boolean popupEditor;
-    private UsingDto component;
+    private String component;
     private String key;
     private String title;
 }

@@ -1,6 +1,7 @@
 package org.mytms.adempiere.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.mytms.adempiere.dao.ADActionDao;
 import org.mytms.adempiere.dao.ADFieldDao;
 import org.mytms.adempiere.dao.ADNestedDao;
@@ -61,11 +62,27 @@ public class ADTabServiceImpl extends GenericEntityServiceImpl<Long, ADTab> impl
             List<ADNested> nesteds = nestedDao.save(entity.getNesteds());
             persistedEntity.setNesteds(nesteds);
         }
-        return convertToDto(persistedEntity);
+        return convertToDto(persistedEntity, false, false, false);
     }
 
-    TabDto convertToDto(ADTab entity) {
-        return new ModelMapper().map(entity, TabDto.class);
+    public TabDto convertToDto(ADTab entity, boolean skipField, boolean skipAction, boolean skipNested) {
+        PropertyMap<ADTab, TabDto> propertyMap = new PropertyMap<ADTab, TabDto>() {
+            @Override
+            protected void configure() {
+                if (skipField) {
+                    skip(destination.getFields());
+                }
+                if (skipAction) {
+                    skip(destination.getActions());
+                }
+                if (skipNested) {
+                    skip(destination.getNesteds());
+                }
+            }
+        };
+        ModelMapper mapper = new ModelMapper();
+        mapper.addMappings(propertyMap);
+        return mapper.map(entity, TabDto.class);
     }
 
     ADTab convertToEntity(TabDto dto) {

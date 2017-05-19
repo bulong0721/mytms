@@ -31,5 +31,5 @@ public class TabDto {
 
     private Integer nestedIndex;
 
-    private List<NestedDto> nestedTables;
+    private List<NestedDto> nesteds;
 }
