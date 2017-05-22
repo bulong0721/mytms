@@ -1,7 +1,14 @@
 package org.mytms.common.ajax;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 
+@Setter
+@Getter
+@NoArgsConstructor
 public class AjaxResponse<T> implements Serializable {
 
     public final static int RESPONSE_STATUS_SUCCESS = 200;
@@ -9,30 +16,6 @@ public class AjaxResponse<T> implements Serializable {
     protected int code = RESPONSE_STATUS_SUCCESS;
     protected String message = null;
     protected T data;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 
     public static AjaxResponse success() {
         AjaxResponse response = new AjaxResponse();

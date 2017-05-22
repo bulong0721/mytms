@@ -10,6 +10,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:0.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.14" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.openjpa:openjpa-all:2.4.2" level="project" />
     <orderEntry type="module" module-name="mytms-common" />
     <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:0.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.redisson:redisson:3.3.2" level="project" />
