@@ -82,4 +82,6 @@ public class VehicleDto {
     private String vin;
 
     private Double weightLoad;
+
+    private List<InsuranceDto> insurances;
 }

@@ -13,13 +13,23 @@ import lombok.*;
 public class InsuranceDto {
 	private Long id;
 
-	private String insuranceCompany;
+	private Date deadline;
 
-	private Date insuranceDeadline;
+	private Integer driverPolicy;
 
-	private Integer insuranceMaxamount;
+	private Integer passengerPolicy;
 
-	private String insuranceNo;
+	private String policyNo;
+
+	private String policyType;
 
 	private String remark;
+
+	private String supplier;
+
+	private Integer temperturePolicy;
+
+	private Integer thirdPartyPolicy;
+
+	private Integer totalPolicy;
 }

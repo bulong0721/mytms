@@ -120,7 +120,8 @@ public class MyTmsCustomizer implements ReverseCustomizer {
 
     @Override
     public String getClassCode(ClassMapping mapping) {
-        return writeDto(mapping);
+//        return writeDto(mapping);
+        return writeEntity(mapping);
     }
 
     @SuppressWarnings("rawtypes")

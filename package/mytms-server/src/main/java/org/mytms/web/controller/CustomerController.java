@@ -6,8 +6,11 @@ import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
 import org.mytms.common.exception.ServiceException;
 import org.mytms.customer.domain.CustomerGroup;
+import org.mytms.customer.domain.Vehicle;
 import org.mytms.customer.dto.CustomerGroupDto;
+import org.mytms.customer.dto.VehicleDto;
 import org.mytms.customer.service.CustomerGroupService;
+import org.mytms.customer.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerGroupService groupService;
+
+    @Autowired
+    private VehicleService vehicleService;
 
     @ResponseBody
     @RequestMapping({"customerGroup/paging"})
@@ -55,5 +61,30 @@ public class CustomerController {
         return response;
     }
 
+    @ResponseBody
+    @RequestMapping({"vehicle/paging"})
+    public AjaxPageableResponse pageVehicle(@RequestBody VehicleDto dto) {
+        AjaxPageableResponse<VehicleDto> response = new AjaxPageableResponse<>();
+        ModelMapper mapper = new ModelMapper();
+        List<VehicleDto> dtoList = Lists.transform(vehicleService.findAll(), entity -> mapper.map(entity, VehicleDto.class));
+        response.setList(dtoList);
+        return response;
+    }
 
+    @ResponseBody
+    @RequestMapping({"vehicle/save"})
+    public AjaxResponse saveVehicle(@RequestBody VehicleDto dto) throws ServiceException {
+        AjaxResponse<VehicleDto> response = new AjaxResponse<>();
+        ModelMapper mapper = new ModelMapper();
+        vehicleService.update(mapper.map(dto, Vehicle.class));
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping({"vehicle/delete"})
+    public AjaxResponse deleteVehicle(@RequestBody VehicleDto dto) {
+        AjaxResponse<VehicleDto> response = new AjaxPageableResponse<>();
+        ModelMapper mapper = new ModelMapper();
+        return response;
+    }
 }

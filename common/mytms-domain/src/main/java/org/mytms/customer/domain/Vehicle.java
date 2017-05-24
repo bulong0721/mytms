@@ -150,4 +150,7 @@ public class Vehicle extends OrgAssignedEntity<Long, Vehicle> {
     @Basic
     @Column(name = "WEIGHT_LOAD")
     private Double weightLoad;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle", targetEntity = Insurance.class)
+    private List<Insurance> insurances;
 }

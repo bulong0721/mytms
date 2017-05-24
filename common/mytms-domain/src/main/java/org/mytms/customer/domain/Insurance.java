@@ -2,7 +2,6 @@ package org.mytms.customer.domain;
 
 import java.util.*;
 import javax.persistence.*;
-
 import org.mytms.common.domain.OrgAssignedEntity;
 import lombok.*;
 
@@ -13,27 +12,50 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "insurance")
+@Table(name="insurance")
 public class Insurance extends OrgAssignedEntity<Long, Insurance> {
     private static final long serialVersionUID = 1L;
 
     @Basic
-    @Column(name = "INSURANCE_COMPANY", length = 64)
-    private String insuranceCompany;
+    private Date deadline;
 
     @Basic
-    @Column(name = "INSURANCE_DEADLINE")
-    private Date insuranceDeadline;
+    @Column(name="DRIVER_POLICY", columnDefinition="INT")
+    private Integer driverPolicy;
 
     @Basic
-    @Column(name = "INSURANCE_MAXAMOUNT", columnDefinition = "INT")
-    private Integer insuranceMaxamount;
+    @Column(name="PASSENGER_POLICY", columnDefinition="INT")
+    private Integer passengerPolicy;
 
     @Basic
-    @Column(name = "INSURANCE_NO", length = 64)
-    private String insuranceNo;
+    @Column(name="POLICY_NO", length=64)
+    private String policyNo;
 
     @Basic
-    @Column(length = 256)
+    @Column(name="POLICY_TYPE", length=64)
+    private String policyType;
+
+    @Basic
+    @Column(length=256)
     private String remark;
+
+    @Basic
+    @Column(length=64)
+    private String supplier;
+
+    @Basic
+    @Column(name="TEMPERTURE_POLICY", columnDefinition="INT")
+    private Integer temperturePolicy;
+
+    @Basic
+    @Column(name="THIRD_PARTY_POLICY", columnDefinition="INT")
+    private Integer thirdPartyPolicy;
+
+    @Basic
+    @Column(name="TOTAL_POLICY", columnDefinition="INT")
+    private Integer totalPolicy;
+
+    @ManyToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "vehicle_id")
+    private Vehicle vehicle;
 }
