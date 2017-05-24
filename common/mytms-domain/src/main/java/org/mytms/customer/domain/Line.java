@@ -17,14 +17,6 @@ public class Line extends OrgAssignedEntity<Long, Line> {
     private static final long serialVersionUID = 1L;
 
     @Basic
-    @Column(name = "BUSINESS_TYPE", columnDefinition = "INT")
-    private Integer businessType;
-
-    @Basic
-    @Column(name = "DELIVERY_AREA", length = 256)
-    private String deliveryArea;
-
-    @Basic
     @Column(name = "DEPARTURE_CODE", length = 64)
     private String departureCode;
 
@@ -41,6 +33,82 @@ public class Line extends OrgAssignedEntity<Long, Line> {
     private String destinationName;
 
     @Basic
+    @Column(name = "BUSINESS_TYPE", columnDefinition = "INT")
+    private Integer businessType;
+
+    @Basic
+    @Column(name = "DELIVERY_AREA", length = 256)
+    private String deliveryArea;
+
+    @Basic
     @Column(length = 256)
     private String remark;
+
+    @Basic
+    @Column(name = "VEHICLE_TYPE", columnDefinition = "INT")
+    private Integer vehicleType;
+
+    @Basic
+    @Column(name = "VEHICLE_SPEC", length = 64)
+    private String vehicleSpec;
+
+    @Basic
+    @Column(name = "LOADAGE_TONS", columnDefinition = "DECIMAL")
+    private Double loadageTons;
+
+    @Basic
+    @Column(name = "LOADAGE_CUBES", columnDefinition = "DECIMAL")
+    private Double loadageCubes;
+
+    @Basic
+    @Column(name = "IS_TEMPERATURE_CONTROL", length = 10)
+    private String isTemperatureControl;
+
+    @Basic
+    @Column(name = "HIGHEST_TEMP", columnDefinition = "DECIMAL")
+    private Double highestTemp;
+
+    @Basic
+    @Column(name = "LOWEST_TEMP", columnDefinition = "DECIMAL")
+    private Double lowestTemp;
+
+    @Basic
+    @Column(name = "TRANSIT_TIME", columnDefinition = "DECIMAL")
+    private Double transitTime;
+
+    @Basic
+    @Column(name = "TRANSIT_PRICE", columnDefinition = "DECIMAL")
+    private Double transitPrice;
+
+    @Basic
+    @Column(name = "HAS_LOAD", length = 10)
+    private String hasLoad;
+
+    @Basic
+    @Column(name = "HAS_LOAD_SERVICE", length = 10)
+    private String hasLoadService;
+
+    @Basic
+    @Column(name = "LOAD_CHARGE_WAY", columnDefinition = "INT")
+    private Integer loadChargeWay;
+
+    @Basic
+    @Column(name = "LOAD_PRICE", columnDefinition = "DECIMAL")
+    private Double loadPrice;
+
+    @Basic
+    @Column(name = "HAS_UNLOAD", length = 10)
+    private String hasUnload;
+
+    @Basic
+    @Column(name = "HAS_UNLOAD_SERVICE", length = 10)
+    private String hasUnloadService;
+
+    @Basic
+    @Column(name = "UNLOAD_CHARGE_WAY", columnDefinition = "INT")
+    private Integer unloadChargeWay;
+
+    @Basic
+    @Column(name = "UNLOAD_PRICE", columnDefinition = "DECIMAL")
+    private Double unloadPrice;
 }

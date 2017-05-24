@@ -11,9 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 public class LineDto {
-    private Integer businessType;
-
-    private String deliveryArea;
+    private Long id;
 
     private String departureCode;
 
@@ -23,6 +21,45 @@ public class LineDto {
 
     private String destinationName;
 
-    private Long id;
+    private Integer businessType;
+
+    private String deliveryArea;
+
     private String remark;
+
+    private Integer orgId;
+
+    private Integer vehicleType;
+
+    private String vehicleSpec;
+
+    private Double loadageTons;
+
+    private Double loadageCubes;
+
+    private String isTemperatureControl;
+
+    private Double highestTemp;
+
+    private Double lowestTemp;
+
+    private Double transitTime;
+
+    private Double transitPrice;
+
+    private String hasLoad;
+
+    private String hasLoadService;
+
+    private Integer loadChargeWay;
+
+    private Double loadPrice;
+
+    private String hasUnload;
+
+    private String hasUnloadService;
+
+    private Integer unloadChargeWay;
+
+    private Double unloadPrice;
 }
