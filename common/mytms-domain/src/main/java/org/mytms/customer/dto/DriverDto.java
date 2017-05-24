@@ -1,5 +1,6 @@
 package org.mytms.customer.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.*;
@@ -31,13 +32,20 @@ public class DriverDto {
 
     private String imgOther;
 
-    private Integer licensePeriodType;
-
     private String mobile;
 
     private String permanentLocation;
 
     private String remark;
 
-    private Boolean sex;
+    private Integer sex;
+
+    private String healthNo;
+
+    private Date healthExpiredTime;
+
+    private String imgHealthCard;
+
+    private Date licenseExpiredTime;
+
 }
