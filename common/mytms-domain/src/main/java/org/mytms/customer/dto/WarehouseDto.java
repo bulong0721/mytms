@@ -1,7 +1,6 @@
 package org.mytms.customer.dto;
 
 import java.util.List;
-
 import lombok.*;
 
 /**
@@ -12,62 +11,63 @@ import lombok.*;
 @NoArgsConstructor
 public class WarehouseDto {
     private String address;
-
     private Double area;
-
     private String areaCode;
-
     private String areaName;
-
+    private Integer balancePeriod;
+    private Integer balanceType;
     private String cityCode;
-
     private String cityName;
-
     private String code;
-
+    private Integer cooperateVehicleType;
     private Double cubage;
-
-    private String firefight;
-
-    private String gradeLabel;
-
+    private Integer distributionAbility;
+    private Integer firefight;
+    private Integer gradeLabel;
     private Integer groundType;
-
+    private Boolean hasAllocation;
+    private Boolean hasDampness;
+    private Boolean hasFoodLicense;
+    private Boolean hasGsp;
+    private Boolean hasLoad;
+    private Boolean hasPlatform;
+    private Boolean hasRack;
+    private Integer refrigerationPlant;
+    private Boolean hasTemperature;
+    private Boolean hasVideo;
+    private Integer hasWms;
     private Integer heightLevel;
-
-    private Long id;
-
+    private long id;
     private String imgFireAccept;
-
     private String imgOperatePermit;
-
     private String imgPlan;
-
     private String imgProperty;
-
     private String imgRentalAgreement;
-
     private String imgWarehouse;
-
     private Float latitude;
-
     private Float longitude;
-
-    private String matchEquipment;
-
+    private Integer matchEquipment;
+    private Double minCharge;
     private String name;
-
     private Boolean operate;
-
+    private Double operationFeeDetail;
+    private String operationFeeType;
+    private String pickupArea;
     private String provinceCode;
-
     private String provinceName;
-
+    private Integer refrigeratedVehicles;
     private String remark;
-
-    private String security;
-
-    private String struct;
-
-    private Integer warehouseType;
+    private Integer security;
+    private Integer storageBalanceType;
+    private Integer storageChargeWay;
+    private Double storagePriceDetail;
+    private Integer struct;
+    private String teamName;
+    private Integer vehicles;
+    private String warehouseType;
+    private String storageChargeOtherWay;
+    private Double operationOtherFee;
+    private Integer auditStatus;
+    private String auditor;
+    private List<InsuranceDto> insurances;
 }

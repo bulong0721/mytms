@@ -58,4 +58,8 @@ public class Insurance extends OrgAssignedEntity<Long, Insurance> {
     @ManyToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "vehicle_id")
     private Vehicle vehicle;
+
+    @ManyToOne(targetEntity = Warehouse.class, fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT), name = "warehouse_id")
+    private Warehouse warehouse;
 }
