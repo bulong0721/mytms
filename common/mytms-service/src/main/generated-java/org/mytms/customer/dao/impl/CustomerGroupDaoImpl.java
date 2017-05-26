@@ -23,12 +23,12 @@ public class CustomerGroupDaoImpl extends GenericEntityDaoImpl<Long, CustomerGro
     @Override
     public Page<CustomerGroup> pageGroup(CustomerGroupDto dto) {
         Predicate predicate = null;
-        if (null != dto.getIndustryType()) {
-            predicate = path.industryType.eq(dto.getGroupType());
-        }
-        if (null != dto.getGroupType()) {
-            path.groupType.eq(dto.getGroupType());
-        }
+//        if (null != dto.getIndustryType()) {
+//            predicate = path.industryType.eq(dto.getGroupType());
+//        }
+//        if (null != dto.getGroupType()) {
+//            path.groupType.eq(dto.getGroupType());
+//        }
         if(null != dto.getCompany()) {
             path.company.like(dto.getCompany());
         }

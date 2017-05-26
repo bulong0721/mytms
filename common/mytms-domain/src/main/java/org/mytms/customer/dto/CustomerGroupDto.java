@@ -21,11 +21,11 @@ public class CustomerGroupDto {
 
     private Float cooperaPeriod;
 
-    private Integer groupType;
+    private String groupType;
 
     private Long id;
 
-    private Integer industryType;
+    private String industryType;
 
     private String portfolio;
 

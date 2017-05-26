@@ -63,7 +63,7 @@ public class VehicleDto {
 
     private String operateNo;
 
-    private Integer ownerType;
+    private String ownerType;
 
     private Date regdate;
 
@@ -77,7 +77,7 @@ public class VehicleDto {
 
     private Float vehicleLength;
 
-    private Integer vehicleType;
+    private String vehicleType;
 
     private String vin;
 

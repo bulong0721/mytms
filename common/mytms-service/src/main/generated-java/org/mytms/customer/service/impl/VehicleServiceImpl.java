@@ -36,4 +36,3 @@ public class VehicleServiceImpl extends GenericEntityServiceImpl<Long, Vehicle> 
         return pEntity;
     }
 }
-
