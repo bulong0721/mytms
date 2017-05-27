@@ -5,11 +5,14 @@ import org.modelmapper.ModelMapper;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
 import org.mytms.common.exception.ServiceException;
+import org.mytms.customer.domain.Customer;
 import org.mytms.customer.domain.CustomerGroup;
 import org.mytms.customer.domain.Vehicle;
+import org.mytms.customer.dto.CustomerDto;
 import org.mytms.customer.dto.CustomerGroupDto;
 import org.mytms.customer.dto.VehicleDto;
 import org.mytms.customer.service.CustomerGroupService;
+import org.mytms.customer.service.CustomerService;
 import org.mytms.customer.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +36,9 @@ public class CustomerController {
 
     @Autowired
     private VehicleService vehicleService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @ResponseBody
     @RequestMapping({"customerGroup/paging"})
@@ -58,6 +64,25 @@ public class CustomerController {
     public AjaxResponse deleteCustomerGroup(@RequestBody CustomerGroupDto dto) {
         AjaxResponse<CustomerGroupDto> response = new AjaxPageableResponse<>();
         ModelMapper mapper = new ModelMapper();
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping({"customer/paging"})
+    public AjaxPageableResponse pageCustomer(@RequestBody CustomerDto dto) {
+        AjaxPageableResponse<CustomerDto> response = new AjaxPageableResponse<>();
+        ModelMapper mapper = new ModelMapper();
+        List<CustomerDto> dtoList = Lists.transform(customerService.findAll(), entity -> mapper.map(entity, CustomerDto.class));
+        response.setList(dtoList);
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping({"customer/save"})
+    public AjaxResponse saveCustomer(@RequestBody CustomerDto dto) throws ServiceException {
+        AjaxResponse<CustomerDto> response = new AjaxResponse<>();
+        ModelMapper mapper = new ModelMapper();
+        customerService.update(mapper.map(dto, Customer.class));
         return response;
     }
 
