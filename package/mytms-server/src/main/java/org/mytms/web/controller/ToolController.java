@@ -2,6 +2,7 @@ package org.mytms.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.modelmapper.ModelMapper;
 import org.mytms.adempiere.domain.ADTab;
 import org.mytms.adempiere.dto.FieldDto;
@@ -10,6 +11,9 @@ import org.mytms.adempiere.service.ADMetaService;
 import org.mytms.adempiere.service.ADTabService;
 import org.mytms.common.ajax.AjaxPageableResponse;
 import org.mytms.common.ajax.AjaxResponse;
+import org.mytms.common.domain.DicEntry;
+import org.mytms.common.dto.EntryDto;
+import org.mytms.common.service.DicEntryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Martin on 2017/3/16.
@@ -61,9 +67,17 @@ public class ToolController {
         return response;
     }
 
-    ADTab toEntity(TabDto dto) {
+    @Autowired
+    private DicEntryService entryService;
+
+    @ResponseBody
+    @RequestMapping("/entry/dictionary")
+    public AjaxPageableResponse getDictionary() {
+        AjaxPageableResponse<EntryDto> response = new AjaxPageableResponse<>();
         ModelMapper mapper = new ModelMapper();
-        ADTab entity = mapper.map(dto, ADTab.class);
-        return entity;
+        List<EntryDto> entries = Lists.transform(entryService.findAll(), entity -> mapper.map(entity, EntryDto.class));
+        response.setList(entries);
+        return response;
     }
+
 }
